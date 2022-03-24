@@ -3,10 +3,6 @@ name: Auto.Tag
 on:
   - push
 
-branch: main
-
-release-branch: main
-
 jobs:
   tag:
     runs-on: ubuntu-latest
@@ -18,3 +14,4 @@ jobs:
       - uses: phish108/autotag-action@1.1.37
         with:
           github-token: ${{ secrets.GITHUB_TOKEN}}
+          branch: main
