@@ -1,6 +1,6 @@
 {
 	"name": "auto-version-tool",
-	"version": "1.0.1",
+	"version": "1.0.2",
 	"description": "Testing auto versioning of repository",
 	"main": "index.js",
 	"scripts": {
