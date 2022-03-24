@@ -4,7 +4,7 @@ on:
   - push
 
 jobs:
-  tag:
+  tag: main
     runs-on: ubuntu-latest
     strategy:
       matrix:
