@@ -1,0 +1,19 @@
+{
+  "name": "auto-version-tool",
+  "version": "1.0.0",
+  "description": "Testing auto versioning of repository",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashokkumarsh/auto-version-tool.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashokkumarsh/auto-version-tool/issues"
+  },
+  "homepage": "https://github.com/ashokkumarsh/auto-version-tool#readme"
+}
