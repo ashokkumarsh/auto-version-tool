@@ -1,17 +1,20 @@
-- name: Git Version
-  id: version
-  uses: codacy/git-version@2.2.0
-  with:
-     release-branch: main
+name: Auto.Tag
 
+on:
+  - push
 
-- name: Tagging
-  uses: actions/github-script@v5
-  with:
-	github-token: ${{ secrets.GITHUB_TOKEN }}
-	script: |
-	  github.rest.git.createRef({
-		owner: context.repo.owner,
-		repo: context.repo.repo,
-		ref: 'refs/tags/${{ needs.versioning.outputs.version }}',
-    sha: context.sha})
+branch: main
+
+release-branch: main
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version:
+          - 12
+    steps:
+      - uses: phish108/autotag-action@1.1.37
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN}}
