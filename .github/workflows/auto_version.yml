@@ -1,20 +1,17 @@
-# .github/workflows/auto_version.yml
-name: Git Version
+- name: Git Version
+  id: version
+  uses: codacy/git-version@2.2.0
+  with:
+     release-branch: main
 
-on:
-  push:
-    branches:
-      - main
 
-jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v2
-        with:
-          ref: ${{ github.head_ref }} # checkout the correct branch name
-          fetch-depth: 0 # fetch the whole repo history
-
-      - name: Git Version
-        uses: codacy/git-version@2.2.0
+- name: Tagging
+  uses: actions/github-script@v5
+  with:
+	github-token: ${{ secrets.GITHUB_TOKEN }}
+	script: |
+	  github.rest.git.createRef({
+		owner: context.repo.owner,
+		repo: context.repo.repo,
+		ref: 'refs/tags/${{ needs.versioning.outputs.version }}',
+    sha: context.sha})
