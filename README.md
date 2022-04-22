@@ -1,2 +1,2 @@
 # auto-version-tool
-Testing auto versioning of repository
+Testing auto versioning of repository #major-#minor-#patch
